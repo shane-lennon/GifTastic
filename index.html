@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Link to Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Link to JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <!-- Link to Javascript -->
+    <script type="text/javascript" src="assets/javascript/javascript.js"></script>
+</head>
+
+<body>
+
+
+
+    <div id="topicButtons"></div>
+    <div id="giphy-gifs"></div>
+
+    <!-- Script -->
+
+    <script type="text/javascript">
+        // Create an topics variable
+        var topics = ["pandas", "otters", "bears", "mice"]
+        var APIKey = "x1cJgoLFjEvXwQYBoPuMclxYDIE3ZFwb";
+        var TESTqueryURL = "https://api.giphy.com/v1/gifs/search?q=" + TEST + "&api_key=" + APIKey;
+        var TEST = "cats"
+
+
+        for (i = 0; i < topics.length; i++) {
+
+            var topicBtn = $("<button>");
+
+            topicBtn.addClass("topic-button");
+            topicBtn.attr("data-topic", topics[i]);
+            topicBtn.text(topics[i]);
+            topicBtn.appendTo("#topicButtons");
+        }
+
+        $(".topic-button").on("click", function (event) {
+
+            // grab GIPHY API
+            var APIKey = "x1cJgoLFjEvXwQYBoPuMclxYDIE3ZFwb";
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + $(this).attr("data-topic") + "&api_key=" +
+                APIKey;
+
+                var TestJ = $.ajax({url: TESTqueryURL, method: "GET"});
+
+                //var result = JSON.parse(response);
+                console.log(TestJ.responseJSON.data[0]);
+
+                for (i = 0; i < 10; i++) {
+                    var gif = $("<img>");
+
+                    gif.addClass("giphy-gif");
+                    gif.attr("id", "gif" + i);
+                    // gif.attr("src", );
+                }
+            });
+
+        function searchGiphy(queryURL) {
+            return $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                return responseJSON;
+            });
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>
