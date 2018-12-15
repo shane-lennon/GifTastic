@@ -1,5 +1,5 @@
 body {
-    background: url("../images/nyan.gif") no-repeat center fixed;
+    background: url("../images/nyan.gif") no-repeat center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
