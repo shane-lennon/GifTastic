@@ -5,17 +5,6 @@ var results = {}
 $(document).ready(function () {
 
   renderButtons();
-
-  function renderButtons() {
-    $("#topicButtons").empty();
-    for (i = 0; i < topics.length; i++) {
-      var b = $("<button class=topic>");
-
-      b.text(topics[i]);
-      $("#topicButtons").append(b);
-    };
-  };
-
   $("#submitButton").on("click", function (event) {
     event.preventDefault();
     var button = $("#input").val().trim();
@@ -23,11 +12,19 @@ $(document).ready(function () {
     renderButtons();
     $('#input').val('');
   });
-
   $(document).on("click", ".topic", grabGiphy);
   $(document).on("click", ".image-gifs", animateGiphy);
 
-  // Gif grab from database.
+  function renderButtons() {
+    $("#topicButtons").empty();
+    for (i = 0; i < topics.length; i++) {
+      var b = $('<button type="button" class="topic btn btn-primary">');
+
+      b.text(topics[i]);
+      $("#topicButtons").append(b);
+    };
+  };
+  
   function grabGiphy() {
     var searchId = $(this).text();
     var searchStr = searchId.split(" ").join("+");
@@ -42,7 +39,7 @@ $(document).ready(function () {
       $("#gifSpace").empty();
       for (var i = 0; i < results.length; i++) {
         var gifDiv = $("<div>");
-        var h2 = $("<h2 class='rating'>").text("Rating: " + results[i].rating);
+        var h2 = $("<h2 class='rating'>").text("Rating: " + results[i].rating.toUpperCase());
         var stillImage = $("<img>");
 
         stillImage.addClass("image-gifs")
@@ -52,7 +49,7 @@ $(document).ready(function () {
         gifDiv.append(stillImage);
         gifDiv.append(h2);
         gifDiv.addClass("individual-gifs")
-        $("#gifSpace").prepend(gifDiv);
+        $("#gifSpace").append(gifDiv);
       };
     });
   };

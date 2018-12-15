@@ -1,3 +1,27 @@
+body {
+    background: url("../images/nyan.gif") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .buffer {
     height: 20px;
+}
+
+#header {
+    text-align: center;
+    color: aliceblue;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 3rem;
+}
+
+.input-label {
+    color: aliceblue;
+}
+
+.rating {
+    color: aliceblue;
+    font-family: 'ZCOOL KuaiLe', bold;
 }
