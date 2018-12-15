@@ -1,9 +1,9 @@
 body {
-    background: url("../images/nyan.gif") no-repeat center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: url("../images/nyan.gif") no-repeat center fixed;
+    -webkit-background-size: cover fixed;
+    -moz-background-size: cover fixed;
+    -o-background-size: cover fixed;
+    background-size: cover fixed;
 }
 
 .buffer {
